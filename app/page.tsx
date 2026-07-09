@@ -1,8 +1,12 @@
-import Hero from "../components/Hero";
+import Hero from "@/components/Hero";
+import EventList from "@/components/EventList";
+import data from "@/data/characters.json";
+import { Character } from "@/types/types";
 export default function Home() {
   return (
-    <main className="flex flex-col max-w-7xl w-full mx-auto">
+    <section className="flex flex-col gap-2">
       <Hero />
-    </main>
+      <EventList characters={data.chars as Character[]} />
+    </section>
   );
 }

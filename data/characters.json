@@ -1,0 +1,30 @@
+{  "chars": [
+    {
+      "id": 1,
+      "name": "Philip J. Fry",
+      "gender": "MALE",
+      "status": "ALIVE",
+      "species": "HUMAN",
+      "createdAt": "2023-12-02T18:32:33.122015Z",
+      "image": "https://futuramaapi.com/static/img/human/philip-j_-fry.webp"
+    },
+    {
+      "id": 2,
+      "name": "Morgan Proctor",
+      "gender": "FEMALE",
+      "status": "ALIVE",
+      "species": "ALIEN",
+      "createdAt": "2023-12-02T18:32:33.122015Z",
+      "image": "https://futuramaapi.com/static/img/human/morgan-proctor.webp"
+    },
+    {
+      "id": 6,
+      "name": "Nichelle Nichols",
+      "gender": "FEMALE",
+      "status": "UNKNOWN",
+      "species": "ROBOT",
+      "createdAt": "2023-12-02T18:32:33.122015Z",
+      "image": "https://futuramaapi.com/static/img/human/nichelle-nichols-_character_.webp"
+    }
+  ]
+}
