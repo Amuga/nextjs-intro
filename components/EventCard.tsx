@@ -23,21 +23,28 @@ export default function EventCard({
   const speciesClass = speciesColors[species] ?? "bg-slate-400";
   return (
     <li
-      className={`w-full h-full rounded border border-gray-300 ${speciesClass} hover:scale-105 transition-transform`}
+      className={`wrap-break-word rounded border border-gray-300 ${speciesClass} hover:scale-105 transition-transform`}
     >
-      <Link href={`/character/${id}`} className="block">
-        {image ? (
-          <Image
-            src={image}
-            alt={name}
-            width={200}
-            height={150}
-            className="rounded transition-transform object-fit w-full h-40"
-          />
-        ) : (
-          <p className="p-4">This character&apos;s face is unknown</p>
-        )}
-        <div className="card-info bg-black/10 m-2 flex flex-1 flex-col gap-1 p-2 rounded capitalize">
+      <Link
+        href={`/character/${id}`}
+        className="flex flex-1 h-full flex-col gap-2"
+      >
+        <div className="flex-2 flex items-center h-40 w-full">
+          {image ? (
+            <Image
+              src={image}
+              alt={name}
+              width={250}
+              height={150}
+              className="object-fit h-40 w-full"
+            />
+          ) : (
+            <p className="p-4 text-center">
+              There are no records for this character&apos;s face
+            </p>
+          )}
+        </div>
+        <div className="flex flex-col flex-1 justify-between card-info bg-black/10 gap-1 p-2 rounded capitalize text-sm mb-2 mx-2">
           <p>Name: {name.toLowerCase()}</p>
           <p>Species: {species.toLowerCase()}</p>
           <p>Status: {status.toLowerCase()}</p>
