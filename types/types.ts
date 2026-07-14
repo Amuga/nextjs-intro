@@ -16,3 +16,10 @@ export interface Character {
   createdAt: string;
   image: string;
 }
+
+export interface CharacterResponseData {
+  items: Character[];
+  total: number;
+  page: number;
+  pages: number;
+}

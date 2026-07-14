@@ -1,12 +1,16 @@
 import Hero from "@/components/Hero";
 import EventList from "@/components/EventList";
-import data from "@/data/characters.json";
-import { Character } from "@/types/types";
-export default function Home() {
+import { getCharacters } from "@/data/getCharacters";
+
+export default async function Home() {
+  const apiCharacters = await getCharacters();
+
+  console.log(apiCharacters);
+
   return (
     <section className="flex flex-col gap-2">
       <Hero />
-      <EventList characters={data.chars as Character[]} />
+      <EventList characters={apiCharacters} />
     </section>
   );
 }
