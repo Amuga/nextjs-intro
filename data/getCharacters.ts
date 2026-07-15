@@ -32,8 +32,8 @@ const makeReq = (
   return fetch(req);
 };
 
-export const getCharacters = async (): Promise<Character[]> => {
-  const res = await makeReq(REQTYPE.get, "characters");
+export const getCharacters = async (page = 1): Promise<Character[]> => {
+  const res = await makeReq(REQTYPE.get, `characters?page=${page}&size=10`);
   if (!res.ok) {
     throw new Error("Computer says no " + res.statusText);
   }
@@ -44,7 +44,5 @@ export const getCharacters = async (): Promise<Character[]> => {
 
 export const getCharacter = async (id: string): Promise<Character> => {
   const res = await makeReq(REQTYPE.get, "characters/" + id);
-
-  const character = await res.json();
-  return character ?? null;
+  return res.json();
 };

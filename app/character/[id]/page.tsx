@@ -21,7 +21,7 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
         ← Back to home
       </Link>
 
-      <div className="mt-6 rounded-lg border border-gray-300 shadow-sm overflow-hidden">
+      <div className="mt-6 rounded-lg border border-gray-300 shadow-sm overflow-hidden bg-blue-700/10">
         <div className="relative h-72 w-full content-center">
           {character.image ? (
             <Image
