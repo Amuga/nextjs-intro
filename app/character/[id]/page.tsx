@@ -1,19 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import data from "@/data/characters.json";
+import { getCharacter } from "@/data/getCharacters";
 
 interface CharacterPageProps {
   params: Promise<{ id: string }>;
 }
 
-const getCharacter = async (id: number) => {
-  return await Promise.resolve(data.chars.find((c) => c.id === id));
-};
-
 export default async function CharacterPage({ params }: CharacterPageProps) {
   const { id } = await params;
-  const character = await getCharacter(Number(id));
+  const character = await getCharacter(id);
 
   if (!character) {
     notFound();
@@ -26,14 +22,18 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
       </Link>
 
       <div className="mt-6 rounded-lg border border-gray-300 shadow-sm overflow-hidden">
-        <div className="relative h-72 w-full">
-          <Image
-            src={character.image}
-            alt={character.name}
-            loading="eager"
-            fill
-            style={{ objectFit: "contain" }}
-          />
+        <div className="relative h-72 w-full content-center">
+          {character.image ? (
+            <Image
+              src={character.image}
+              alt={character.name}
+              loading="eager"
+              fill
+              style={{ objectFit: "contain" }}
+            />
+          ) : (
+            <p className="text-center ">No image for this character</p>
+          )}
         </div>
 
         <div className="p-6 space-y-3">
