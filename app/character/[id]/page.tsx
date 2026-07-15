@@ -11,7 +11,7 @@ export default async function CharacterPage({ params }: CharacterPageProps) {
   const { id } = await params;
   const character = await getCharacter(id);
 
-  if (!character) {
+  if (!character?.id) {
     notFound();
   }
 
