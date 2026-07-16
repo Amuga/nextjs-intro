@@ -1,4 +1,5 @@
 import { Character } from "@/types/types";
+import { notFound } from "next/navigation";
 
 interface CharactersResponseData {
   items: Character[];
@@ -44,5 +45,12 @@ export const getCharacters = async (page = 1): Promise<Character[]> => {
 
 export const getCharacter = async (id: string): Promise<Character> => {
   const res = await makeReq(REQTYPE.get, "characters/" + id);
+  if (!res.ok) {
+    if (res.status === 404) {
+      notFound();
+    } else {
+      throw new Error("Computer says no " + res.statusText);
+    }
+  }
   return res.json();
 };

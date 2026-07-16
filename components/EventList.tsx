@@ -3,9 +3,11 @@ import EventCard from "./EventCard";
 
 export default function EventList({ characters }: { characters: Character[] }) {
   return (
-    <section className="flex flex-col gap-1">
-      <h2 className="text-2xl">Look at these guys, wow</h2>
-      <ul className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <section className="flex flex-col gap-1 mx-auto md:mx-12 xl:mx-0">
+      <h2 className="text-2xl text-center md:text-start">
+        Look at these guys, wow
+      </h2>
+      <ul className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 gap-4">
         {characters.map((char: Character) => {
           return <EventCard key={char.id} char={char} />;
         })}

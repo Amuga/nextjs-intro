@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Hero from "@/components/Hero";
 import EventList from "@/components/EventList";
+import Pagination from "@/components/Pagination";
 import { getCharacters } from "@/data/getCharacters";
 
 interface HomeProps {
@@ -15,17 +15,7 @@ export default async function Home({ searchParams }: HomeProps) {
     <section className="flex flex-col gap-2">
       <Hero />
       <EventList characters={apiCharacters} />
-      <div className="flex gap-3 justify-between text-xl text-blue-900">
-        <Link
-          href={currentPage > 1 ? `/?page=${currentPage - 1}` : "/"}
-          scroll={false}
-        >
-          {currentPage === 1 ? "" : "Previous"}
-        </Link>
-        <Link href={`/?page=${currentPage + 1}`} scroll={false}>
-          Next
-        </Link>
-      </div>
+      <Pagination currentPage={currentPage} />
     </section>
   );
 }
